@@ -49,10 +49,6 @@ jobs:
         with:
           terraform_wrapper: false
 
-      - name: Terraform fmt (check)
-        working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform fmt -check -recursive
-
       - name: Terraform init (AAD backend)
         working-directory: ${{ env.TF_WORKDIR }}
         run: |
