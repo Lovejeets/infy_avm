@@ -550,8 +550,8 @@ locals {
       resource_group_name = data.azurerm_resource_group.rg.name
     }
   }
-  private_dns_ids = merge(
-    { for k, m in module.avm-res-network-privatednszone : k => m.resource_id },
-    { for k, d in data.azurerm_private_dns_zone.existing : k => d.id }
-  )
+  #private_dns_ids = merge(
+  #  { for k, m in module.avm-res-network-privatednszone : k => m.resource_id },
+  #  { for k, d in data.azurerm_private_dns_zone.existing : k => d.id }
+  #)
 }
