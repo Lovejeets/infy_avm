@@ -708,8 +708,8 @@ module "avm-res-network-privatednszone" {
     }
   }
 }
-#data "azurerm_private_dns_zone" "existing" {
-#  for_each = {for k, v in local.private_dns_zones : k => v if var.enable_private_dns_zone && !v.create_private_dns_zone }
-#  name                = each.value.private_dns_zone_name
-#  resource_group_name = each.value.resource_group_name
-#}
+data "azurerm_private_dns_zone" "existing" {
+  for_each = {for k, v in local.private_dns_zones : k => v if var.enable_private_dns_zone && !v.create_private_dns_zone }
+  name                = each.value.private_dns_zone_name
+  resource_group_name = each.value.resource_group_name
+}
