@@ -247,7 +247,7 @@ locals {
           vnet_key                      = "vnet1_manual"
           subnet_key                    = "snet1"
           subresource_name              = "blob"
-          private_dns_zone_resource_ids = [local.private_dns_ids["storage"]]
+          private_dns_zone_resource_ids = [] #[local.private_dns_ids["storage"]]
           tags                          = { env = "test" }
         }
       }
