@@ -548,6 +548,7 @@ locals {
       create_private_dns_zone = true
       private_dns_zone_name = "privatelink.blob.core.windows.net"
       resource_group_name = data.azurerm_resource_group.rg.name
+      vnet_id               = local.vnet_ids["vnet1_manual"]
     }
   }
   private_dns_ids = merge(
