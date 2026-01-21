@@ -510,14 +510,14 @@ locals {
           zone_redundant    = false
         }
       ]
-      private_endpoints_manage_dns_zone_group = true
+      private_endpoints_manage_dns_zone_group = false
       private_endpoints = {
         cosmospe = {
           name                          = "pvt-endpoint-cosdb004-cind-claims-test"
           vnet_key                      = "vnet1_manual"
           subnet_key                    = "snet1"
           subresource_name              = "MongoDB"
-          private_dns_zone_resource_ids = [local.private_dns_ids["cosmosdb"]]
+          #private_dns_zone_resource_ids = [local.private_dns_ids["cosmosdb"]]
         }
       }
       # diagnostic_settings = {
