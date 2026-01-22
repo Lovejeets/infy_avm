@@ -45,7 +45,7 @@ locals {
     #   }
     # }
     vnet1_manual = {
-      create_vnet         = false
+      create_vnet         = true
       name                = "vnet1-manual"
       resource_group_name = data.azurerm_resource_group.rg.name
 
