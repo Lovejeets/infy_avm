@@ -203,7 +203,7 @@ locals {
 locals {
   function_app_configs = {
     function1 = {
-      name                                           = "infy-claims-function-app"
+      name                                           = "infy-claims-function-app-testlj"
       location                                       = data.azurerm_resource_group.rg.location
       resource_group_name                            = data.azurerm_resource_group.rg.name
       kind                                           = "functionapp"
