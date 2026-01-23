@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     env:
-      TF_WORKDIR: .
-      TFVARS_FILE: test.auto.tfvars
+      TF_WORKDIR: ms-infy
+      TFVARS_FILE: env/test.tfvars
 
     steps:
       - uses: actions/checkout@v4
@@ -48,6 +48,10 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_wrapper: false
+
+      - name: Terraform fmt (check)
+        working-directory: ${{ env.TF_WORKDIR }}
+        run: terraform fmt -check -recursive
 
       - name: Terraform init (AAD backend)
         working-directory: ${{ env.TF_WORKDIR }}
@@ -82,8 +86,8 @@ jobs:
     needs: [ plan-test ]
     environment: test
     env:
-      TF_WORKDIR: .
-      TFVARS_FILE: test.auto.tfvars
+      TF_WORKDIR: ms-infy
+      TFVARS_FILE: env/test.tfvars
 
     steps:
       - uses: actions/checkout@v4
@@ -122,4 +126,4 @@ jobs:
 
       - name: Terraform apply (test)
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform apply -auto-approve -input=false tfplan.bin
+        run: terraform apply -auto-approve -input=false tfplan.bi
