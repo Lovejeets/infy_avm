@@ -65,7 +65,7 @@ jobs:
         run: |
          az group create \
          --name airg \
-         --location centralindia
+         --location eastus
 
          az storage account create \
          --name tfstatesalj \
