@@ -82,7 +82,7 @@ jobs:
       - name: Verify Backend Access
         run: |
              az storage container list \
-             --account-name tfstateprod \
+             --account-name tfstatesalj \
              --auth-mode login >/dev/null
 
  
