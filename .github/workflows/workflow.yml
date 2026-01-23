@@ -60,6 +60,31 @@ jobs:
         run: |
           rm -rf .terraform
           rm -f .terraform.lock.hcl
+      
+      - name: Ensure Terraform Backend Resources
+        run: |
+         az group create \
+         --name airg \
+         --location centralindia
+
+         az storage account create \
+         --name tfstatesalj \
+         --resource-group airg \
+         --location centralindia \
+         --sku Standard_LRS \
+         --encryption-services blob
+
+         az storage container create \
+         --name statefile \
+         --account-name tfstate${{ github.run_id }}
+
+    
+      - name: Verify Backend Access
+        run: |
+             az storage container list \
+             --account-name tfstateprod \
+             --auth-mode login >/dev/null
+
  
       - name: Terraform init (AAD backend)
         working-directory: ${{ env.TF_WORKDIR }}
