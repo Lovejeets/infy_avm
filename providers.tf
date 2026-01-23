@@ -12,6 +12,14 @@ terraform {
       version = "~> 2.0"
     }
   }
+
+backend "azurerm" {
+    resource_group_name  = "airg"
+    storage_account_name = "tfstatesalj"
+    container_name       = "statefile"
+    key                  = "deployment.tfstate"
+  }
+
 }
 
 provider "azurerm" {
