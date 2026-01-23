@@ -27,7 +27,7 @@ jobs:
     environment: test
     env:
       TF_WORKDIR: 
-      TFVARS_FILE: env/test.auto.tfvars
+      TFVARS_FILE: test.auto.tfvars
 
     steps:
       - uses: actions/checkout@v4
@@ -87,7 +87,7 @@ jobs:
     environment: test
     env:
       TF_WORKDIR: 
-      TFVARS_FILE: env/test.auto.tfvars
+      TFVARS_FILE: test.auto.tfvars
 
     steps:
       - uses: actions/checkout@v4
