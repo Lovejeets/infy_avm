@@ -76,7 +76,7 @@ jobs:
 
          az storage container create \
          --name statefile \
-         --account-name tfstate${{ github.run_id }}
+         --account-name tfstatesalj
 
     
       - name: Verify Backend Access
