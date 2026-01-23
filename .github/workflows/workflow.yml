@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     env:
-      TF_WORKDIR: ms-infy
-      TFVARS_FILE: env/test.tfvars
+      TF_WORKDIR: .
+      TFVARS_FILE: env/test.auto.tfvars
 
     steps:
       - uses: actions/checkout@v4
@@ -86,8 +86,8 @@ jobs:
     needs: [ plan-test ]
     environment: test
     env:
-      TF_WORKDIR: ms-infy
-      TFVARS_FILE: env/test.tfvars
+      TF_WORKDIR: .
+      TFVARS_FILE: env/test.auto.tfvars
 
     steps:
       - uses: actions/checkout@v4
@@ -126,4 +126,4 @@ jobs:
 
       - name: Terraform apply (test)
         working-directory: ${{ env.TF_WORKDIR }}
-        run: terraform apply -auto-approve -input=false tfplan.bi
+        run: terraform apply -auto-approve -input=false tfplan.bin
