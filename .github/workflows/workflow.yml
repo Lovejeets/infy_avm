@@ -35,7 +35,7 @@ jobs:
       - name: Verify TF_WORKDIR exists
         run: |
           test -d "${{ env.TF_WORKDIR }}" || { echo "ERROR: ${{ env.TF_WORKDIR }} not found"; exit 1; }
-          test -f "${{ env.TF_WORKDIR }}/${{ env.TFVARS_FILE }}" || { echo "ERROR: tfvars file not found: ${{ env.TF_WORKDIR }}/${{ env.TFVARS_FILE }}"; exit 1; }
+          test -f "${{ env.TFVARS_FILE }}" || { echo "ERROR: tfvars file not found: ${{ env.TFVARS_FILE }}"; exit 1; }
 
       - name: Azure login (OIDC)
         uses: azure/login@v2
