@@ -147,16 +147,16 @@ jobs:
           terraform_wrapper: false
  
       # ADD: Setup TFLint (optional in apply job)
-      - name: Setup TFLint
-        uses: terraform-linters/setup-tflint@v4
+      #- name: Setup TFLint
+      #  uses: terraform-linters/setup-tflint@v4
  
-      - name: TFLint init
-        working-directory: ${{ env.TF_WORKDIR }}
-        run: tflint --init
+      #- name: TFLint init
+      #  working-directory: ${{ env.TF_WORKDIR }}
+      #  run: tflint --init
  
-      - name: TFLint (recursive)
-        working-directory: ${{ env.TF_WORKDIR }}
-        run: tflint --recursive
+      #- name: TFLint (recursive)
+      #  working-directory: ${{ env.TF_WORKDIR }}
+      #  run: tflint --recursive
  
       - name: Terraform fmt
         working-directory: ${{ env.TF_WORKDIR }}
