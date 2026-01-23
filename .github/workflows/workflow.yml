@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     env:
-      TF_WORKDIR: .
+      TF_WORKDIR: 
       TFVARS_FILE: env/test.auto.tfvars
 
     steps:
@@ -86,7 +86,7 @@ jobs:
     needs: [ plan-test ]
     environment: test
     env:
-      TF_WORKDIR: .
+      TF_WORKDIR: 
       TFVARS_FILE: env/test.auto.tfvars
 
     steps:
