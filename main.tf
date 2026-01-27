@@ -149,9 +149,12 @@ module "keyvault" {
     ? null
     : { for k, v in each.value.tags : k => tostring(v) }
   )
-
+depends_on = [module.law]
 }
 
+---------------------
+#log analytics workspace
+----------------------
 
 module "law" {
   source                                    = "Azure/avm-res-operationalinsights-workspace/azurerm"
@@ -261,7 +264,7 @@ module "avm-res-storage-storageaccount" {
     ? null
     : { for k, v in each.value.tags : k => tostring(v) }
   )
-
+depends_on = [module.law]
 }
 
 #--------------------------------------------------------------------
