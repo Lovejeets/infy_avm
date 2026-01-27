@@ -152,9 +152,9 @@ module "keyvault" {
 depends_on = [module.law]
 }
 
----------------------
+#---------------------
 #log analytics workspace
-----------------------
+#----------------------
 
 module "law" {
   source                                    = "Azure/avm-res-operationalinsights-workspace/azurerm"
