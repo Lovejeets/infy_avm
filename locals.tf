@@ -429,18 +429,18 @@ locals {
           throughput = 400
         }
       }
-      geo_locations = [   #geo replication: primary = RG location, failover = South India
-        {
-          location          = data.azurerm_resource_group.rg.location
-          failover_priority = 0
-          zone_redundant    = false
-        },
-        {
-          location          = "South India"
-          failover_priority = 1
-          zone_redundant    = false
-        }
-      ]
+      #geo_locations = [   #geo replication: primary = RG location, failover = South India
+      #  {
+      #    location          = data.azurerm_resource_group.rg.location
+      #    failover_priority = 0
+      #    zone_redundant    = false
+      #  },
+      #  {
+      #    location          = "South India"
+      #    failover_priority = 1
+      #    zone_redundant    = false
+      #  }
+      #]
       private_endpoints_manage_dns_zone_group = true
       private_endpoints = {
         cosmospe = {
